@@ -1,10 +1,12 @@
 import React from 'react'
 import  'bootstrap/dist/css/bootstrap.min.css'
 import  '../style/Style.css'
+import { Link } from 'react-router-dom'
 
-function MovieCard({title, description, posterURL, rating}) {
+function MovieCard({ id,title, description, posterURL, rating}) {
+
   return (
-    <div>
+    <Link className="cardMovie" to={`/movie/${id}`}>
       <div className='card mb-4' style={{width:'18rem',height:'350px'}}>
         <img src={posterURL} className="card-img-top" alt="..."/>
         <div className="card-body">
@@ -15,7 +17,7 @@ function MovieCard({title, description, posterURL, rating}) {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   )
 }
 

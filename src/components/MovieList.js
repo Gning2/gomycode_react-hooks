@@ -3,67 +3,10 @@ import MovieCard from './MovieCard';
 import  'bootstrap/dist/css/bootstrap.min.css'
 import Navbar from './Navbar';
 import '../style/Style.css'
+import { films } from '../Data'
 
 function MovieList() {
-  const [movies,setMovies] = useState([
-    {
-      id: 1,
-      title: 'Blacklight',
-      description: "Travis Block, un agent du FBI, doit faire taire un autre agent qui souhaite révéler à la presse les méthodes du Bureau...",
-      posterURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyTYN6jyzEliSo4XqDEvFpE3nya3FRkT9DtQ&usqp=CAU',
-      rating: 3.5
-    },
-    {
-      id: 2,
-      title: "Hunter's Player",
-      description: 'Tueur à gages solitaire et implacable, Lucas reçoit pour nouvelle mission de tuer Ella, une jeune fille dont les parents...',
-      posterURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUUcJYa6Pfi5kuYtTlu6fXd8BsSPmEczF2rQ&usqp=CAU",
-      rating: 1.5
-    },
-    {
-      id: 3,
-      title: 'The women king',
-      description: 'Dans les années 1800, un groupe de guerrières entièrement féminines protège le royaume africain...',
-      posterURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGVNIouhOh4V3kMdgM284YxAmaIVRw6lX66w&usqp=CAU',
-      rating: 4.5
-    },
-    {
-      id: 4,
-      title: 'Black panther : WAKANDA FOREVER',
-      description: "La reine Ramonda, Shuri, M'Baku, Okoye et la Dora Milaje se battent pour protéger leur nation...",
-      posterURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSNWktcUgYwv8CNJ7_VKN5Go2--4ydf4StOQ&usqp=CAU',
-      rating: 5
-    },
-    {
-      id: 5,
-      title: 'Quantumania',
-      description: 'Les super-héros et partenaires Scott Lang et Hope Van Dyne, alias Ant-Man et la Guêpe, vont vivre de nouvelles aventures...',
-      posterURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQX2boC9KdQjaEXoPjR_YgzRNvysWoIvKYvoA&usqp=CAU',
-      rating: 2.6
-    },
-    {
-      id: 6,
-      title: 'Scream 6',
-      description: 'Les survivants des derniers meurtres de Ghostface, les sœurs Carpenter et les jumeaux Meeks, quittent Woodsboro...',
-      posterURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7UnS2byPiuAwjjOBHRcCEZzdGywR3ggQDPw&usqp=CAU',
-      rating: 3.4
-    },
-    {
-      id: 7,
-      title: 'La vie scolaire',
-      description: "Samia, une jeune CPE, débarque d'Ardèche pour un poste dans un établissement scolaire réputé difficile à Saint Denis...",
-      posterURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREgOw0inp836Q7fnZn5CNTeIbCCAqZHFmvkw&usqp=CAU',
-      rating: 5
-    }
-    ,
-    {
-      id: 8,
-      title: 'Banlieusards',
-      description: "Trois frères issus d'une banlieue sensible de la région parisienne. Soulaymaan, élève avocat à Paris, réussit brillamment ses études...",
-      posterURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYKozU7DeIr_nTgtFqY_pUZ7e5QlRNUpIK8w&usqp=CAU',
-      rating: 4.5
-    }
-  ]);
+  const [movies,setMovies] = useState(films);
   const [searchTitle, setSearchTitle] = useState('');
   const [searchRating, setSearchRating] = useState('');
 
@@ -149,13 +92,15 @@ function MovieList() {
     </div>
       <div className="d-flex justify-content-evenly flex-wrap mt-4 mb-3">
         {filteredMovies.map((movie) => (
-          <MovieCard
-            key={movie.id}
-            title={movie.title}
-            description={movie.description}
-            posterURL={movie.posterURL}
-            rating={movie.rating}
-          />
+          <div key={movie.id}>
+            <MovieCard
+              id={movie.id}
+              title={movie.title}
+              description={movie.description}
+              posterURL={movie.posterURL}
+              rating={movie.rating}
+            />
+          </div>
         ))}
       </div>
     </div>
